@@ -15,13 +15,42 @@ async function getLinkToImage(description) {
     }
   }
 
+// load weather information from 'http://api.openweathermap.org/'
+async function getWeather(latitude, longitude) {
+  const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=en&units=metric&APPID=03002feb4716ae6a2619917df860988c`;
 
-// yandex map
-function init() {
-    myMap = new ymaps.Map('map', {
-    //   center: [latitude, longitude],
-      center: [56.05, 45.59],
-      zoom: 11,
-    });
+  try {
+    return await fetch(url).then((res) => res.json()).then((data) => data);
+  } catch (ERROR) {
+    alert('Failed to load weather information');
   }
-  ymaps.ready(init);
+}
+
+
+// ________ПОЛУЧИТЬ ПОГОДУ ПО ИНДЕКСУ _________ НЕОБЯЗАТЕЛЬНО ____
+function getWeatherId(id) {
+  const idFirstLetter = id.toString().slice(1, 0);
+  if (idFirstLetter === 2) {
+    return '2xx';
+  } if (idFirstLetter === 3) {
+    return '3xx';
+  }
+  return +id;
+}
+
+
+
+// Функция ymaps.ready() будет вызвана, когда
+// загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+// САРАТОВ ___ 51.544248, 46.049506
+// center: [data.city.coord.lat, data.city.coord.lon],
+// center: [position.coords.latitude, position.coords.longitude],
+
+ymaps.ready(init);
+function init(){
+  var myMap = new ymaps.Map("map", {
+    // center: [51.544248, 46.049506],
+    center: [latitude, longitude],
+    zoom: 11
+  });
+}
