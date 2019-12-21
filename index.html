@@ -10,7 +10,21 @@
 </head>
 <body>
     <h1>Погода</h1>
-    <div id="map"></div>
+    
+    <div class="map">
+        <div id="map" class="map__draw"></div>
+        <div class="map__coordinates">
+            <div class="map__coordinates--element">
+                <div id="latitude"></div>
+                <div id="latitudeValue"></div>
+            </div>
+            <div class="map__coordinates--element">
+                <div id="longitude"></div>
+                <div id="longitudeValue"></div>
+            </div>
+        </div>
+    </div>
+    
     <script src="./js/index.js"></script>
 </body>
 </html>

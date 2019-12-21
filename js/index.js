@@ -1,6 +1,11 @@
+const latitudeElement = document.getElementById('latitude');
+const longitudeElement = document.getElementById('longitude');
 
 
-export async function getLinkToImage(description) {
+let myMap;
+
+
+async function getLinkToImage(description) {
     const url = `https://api.unsplash.com/photos/random?query=${description}&client_id=658a67d9c97fa7ec1a24960dc7e837177c74d8d70cd84ae216e6619df6f93842`;
   
     try {
