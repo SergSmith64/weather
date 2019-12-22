@@ -1,34 +1,297 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fancy-Weather</title>
-    <link rel="stylesheet" href="./sass/style.css">
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-    <!-- ____ not_my ____ -->
-    <!-- ____ пока отключаю, чтоб не дергать API _____ -->
-    <!-- <script src="https://api-maps.yandex.ru/2.1/?apikey=af0dbd6a-6887-43bb-8160-57e861593da4&lang=ru_RU" type="text/javascript"></script> -->
-</head>
-<body>
-    <h1>Погода</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Fancy Weather</title>
+        <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+        <script src="https://api-maps.yandex.ru/2.1/?apikey=98c6e934-2333-43fb-b71d-a6b5b8020bc3&lang=ru_RU" type="text/javascript"></script>
+        <link rel="stylesheet" href="./sass/normalize.css">
 
-    
-    <div class="map">
-        <div id="map" class="map__draw"></div>
-        <div class="map__coordinates">
-            <div class="map__coordinates--element">
-                <div id="latitude"></div>
-                <div id="latitudeValue"></div>
-            </div>
-            <div class="map__coordinates--element">
-                <div id="longitude"></div>
-                <div id="longitudeValue"></div>
-            </div>
+        <!-- ________________ Bootstrap-4-CSS _________________ -->
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+        <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="./sass/style.css">
+    </head>
+    <body>
+        <!-- ____ TASK - URL ____ https://github.com/rolling-scopes-school/tasks/blob/master/tasks/fancy-weather.md ____ -->
+
+        <!-- ____ NEW DEMO LINK ______________________________________________________-->
+        <!-- ____ DEMO: ____ https://sergsmith64.github.io/weather/index.html _______ -->
+        <div class="container">
+
+            <header>
+                <!-- ____ЛЕВЫЙ БЛОК____ -->
+                <div class="header-tools">
+
+                    <button id="refresh" class="header-tools__refresh">
+                        <img class="refresh__arrows" src="./img/vector.svg" alt="button">
+                    </button>
+
+                    <select class="header-tools__lang" name="" id="input0"
+                        reguired>
+                        <option class="header-tools__lang-ru" value="ru">RU</option>
+                        <option class="header-tools__lang-en" value="en">EN</option>
+                    </select>
+<!-- ________________ -->
+
+                <!-- <div id="refresh" class="settings-block__refresh">
+                    <img class="refresh__arrows" src="./images/refresh.svg">
+                </div> -->
+<!-- __________________ -->
+
+                    <div class="control_button__metric">
+                        <div>
+                            <input type="radio" name="option" id="radio1"
+                                checked />
+                            <label for="radio1">°С</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="option" id="radio2" />
+                            <label for="radio2">°F</label>
+                        </div>
+                    </div>
+                </div>
+
+<!-- <script>
+    function inputYourCity() {
+        var town = document.getElementById("yourCity");
+        console.log("ВНУТРИ ФУНКЦИИ ВИЖУ___", (town.value));
+    }
+</script> -->
+
+        <!-- ____ПРАВЫЙ БЛОК____ -->
+                <div class="header-search">
+                    <input type="text" placeholder="Search city" id="yourCity"/>
+                    <!-- <INPUT NAME="username" VALUE ="" SIZE="40" MAXLEGNTH=40 id="fio"> -->
+                    <div onclick="inputYourCity();">
+                        <button>search</button>
+                    </div>
+                </div>
+            </header>
+
+
+
+            <section class="sec-app">
+
+                <main>
+                    <div class="weather-today">
+                        <div class="geo">
+                            <p>
+                                <span class="geo__city">Saratov</span>
+                                <span class="geo__country">RU</span>
+                            </p>
+
+                            <p>
+                                <span class="geo__date">Fri 29 Nov</span>
+                                <span class="geo__time">17:45</span>
+                            </p>
+                        </div>
+
+                        <div class="temp-today">
+                            <!-- ____________ -->
+                            <div class="temp-today__temp-wrapper">
+                                <p class="temp-today__temp">41&deg;</p>
+                                <div class="temp-today__icon">
+                                    <img src="./img/weather/rain_&_snow.png" alt="ИКОНКА-ПОГОДЫ">
+                                </div>
+                            </div>
+
+                            <!-- ____________ -->
+                            <div class="temp-today__weather">
+
+                                <div class="temp-today__weather-wrap">
+                                    <p>
+                                        <span
+                                            class="temp-today__weather-description">_Облака_</span>
+                                    </p>
+
+                                    <p>
+                                        <span>FEELS LIKE:</span>
+                                        <span class="temp-today__weather-feels">_по_ощущениям_</span>
+                                        <!-- <span>&deg;</span> -->
+                                    </p>
+
+                                    <p>
+                                        <span>Ветер</span>
+                                        <span class="temp-today__weather-wind">100,55</span>
+                                        <span> м/сек</span>
+                                    </p>
+
+                                    <p>
+                                        <span>Влажность: </span>
+                                        <span
+                                            class="temp-today__weather-humidity">100,55</span>
+                                        <span> %</span>
+                                    </p>
+
+                                    <!-- ___ дополнительно__можно__получить:  ___ -->
+                                    <p>
+                                        <span>Давление: </span>
+                                        <span
+                                            class="temp-today__weather-pressure">100,55</span>
+                                        <span> hPa</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- ________ ПОГОДА НА ТРИ ДНЯ _________ -->
+
+                    <div class="weather-three-days">
+
+                        <div class="weather-three-days-item">
+                            <div class="day-2">Sunday_</div>
+                            <div class="temp-day-2__temp">43</div>
+                            <div class="temp-day-2__weather-description">Снег</div>
+                        </div>
+                        <!-- ____________ -->
+                        <div class="weather-three-days-item">
+                            <div class="day-3">Monday_</div>
+                            <div class="temp-day-3__temp">45</div>
+                            <div class="temp-day-3__weather-description">Град</div>
+                        </div>
+                        <!-- ____________ -->
+                        <div class="weather-three-days-item">
+                            <div class="day-4">Tuesday_</div>
+                            <div class="temp-day-4__temp">47</div>
+                            <div class="temp-day-4__weather-description">Лед</div>
+                        </div>
+
+                    </div><!-- /weather-three-days-->
+                </main><!-- /main-->
+
+                <aside>
+                    <div class="geolocation">
+                        <div class="geolocation-map">
+                            <img src="./img/map-saratov-325x325.jpg" alt="map">
+                            <!-- <div id="map" style="width: 400px; height: 400px"></div> -->
+                        </div>
+                        <div class="geo-point">
+                            <p>
+                                <span>Latitude: </span>
+                                <span class="geo-point__latitude">55.555555</span>
+                                <span>&deg;</span>
+                            </p>
+                            <p>
+                                <span>Longitude: </span>
+                                <span class="geo-point__longitude">55.555555</span>
+                                <span>&deg;</span>
+                            </p>
+
+                        </div>
+                    </div>
+                </aside>
+
+            </section>
+
+
         </div>
-    </div>
-    
-    <script src="./js/index.js"></script>
-</body>
+
+        <script>
+    //  _________________WebForMySelf____________________
+
+    // function getCoordinat() {
+    //     navigator.geolocation.getCurrentPosition(showCoordinat, showError);
+    // }
+    // function showCoordinat(position) {
+    //     document.write("Широта:  " + position.coords.latitude + '<br>');
+    //     document.write("Долгота: " + position.coords.longitude + '<br>');
+    // }
+    // function showError(error) {
+    //     switch(error.code) {
+    //         case error.PERMISSION_DENIED:
+    //             alert("Пользователь запретил считывать информацию о своем местоположении!");
+    //         break;
+
+    //         case error.POSITION_UNAVAILABLE:
+    //             alert("Браузер не смог определить местоположение пользователя");
+    //         break;
+
+    //         case error.TIMEOUT:
+    //             alert("Браузер не успел определить местоположение за выделенное ему время");
+    //         break;
+
+    //         case error.UNKNOWN_ERROR:
+    //             alert("Произошла неопределенная ошибка");
+    //         break;
+    //     }
+    // }
+    // ____ ВЫВОД КООРДИНАТ ____
+    // getCoordinat()
+
+
+
+
+    //  _________________________________
+
+    // function getCoordinates() {
+    //     navigator.geolocation.getCurrentPosition(showCoordinates);
+    // }
+
+    // function showCoordinates (position) {
+    //     document.write("Широта:  " + position.coords.latitude + '<br>');
+    //     document.write("Долгота: " + position.coords.longitude + '<br>');
+    // }
+
+
+
+    // function getCoordinates() {
+    //     watchID = navigator.geolocation.watchPosition(showCoordinates);
+    // }
+
+    // function stop() {
+    //     if (watchID) {
+    //         navigator.geolocation.cl
+    //     }
+    // }
+
+
+
+// ______ с сайта Mozilla _____
+
+    // var options = {
+    // enableHighAccuracy: true,
+    // timeout: 5000,
+    // maximumAge: 0
+    // };
+
+    // function success(pos) {
+    // var crd = pos.coords;
+
+    // console.log('Ваше текущее местоположение:');
+    // console.log(`Широта: ${crd.latitude}`);
+    // console.log(`Долгота: ${crd.longitude}`);
+    // console.log(`Плюс-минус ${crd.accuracy} метров.`);
+    // };
+
+    // function error(err) {
+    // console.warn(`ERROR(${err.code}): ${err.message}`);
+    // };
+
+    // navigator.geolocation.getCurrentPosition(success, error, options);
+
+
+</script>
+        
+        <!-- <script src="./js/load-pics.js"></script> -->
+
+        <!-- <img src="./assets/img/weather/rain_&_snow.png" alt=""> -->
+
+        <!-- <script src="./js/arr-weather-icons.js"></script> -->
+
+        <!-- <script src="./js/find-your-city.js"></script> -->
+
+        <!-- <script src="./js/await-1.js"></script> -->
+
+        <script src="./js/index.js"></script>
+    </body>
 </html>
