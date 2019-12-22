@@ -66,6 +66,15 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+@media screen and (max-width: 800px) {
+  header {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 
 .header-tools {
@@ -250,14 +259,12 @@ header {
 @media screen and (max-width: 780px) {
   .header-search input {
     width: 350px;
-    background-position-x: 320px;
   }
 }
 
 @media screen and (max-width: 730px) {
   .header-search input {
     width: 320px;
-    background-position-x: 280px;
   }
 }
 
@@ -566,20 +573,17 @@ aside {
   width: 30vw;
   height: 400px;
   border: #FFF 2px solid;
-  background-color: red;
 }
 
 @media screen and (max-width: 998px) {
   #map {
     width: 30vw;
-    background-color: green;
   }
 }
 
 @media screen and (max-width: 946px) {
   #map {
     width: 35vw;
-    background-color: blue;
   }
 }
 
@@ -588,7 +592,6 @@ aside {
     width: 80vw;
     padding-left: 20px;
     padding-right: 20px;
-    background-color: yellow;
   }
 }
 /*# sourceMappingURL=style.css.map */

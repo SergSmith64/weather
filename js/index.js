@@ -171,7 +171,7 @@ function inputYourCity() {
 
 
 // __ДОБАВЛЯЮ__
-let myMap;
+
 
 ymaps.ready(init);
 function init(){
@@ -179,6 +179,4 @@ function init(){
     center: [51.544248, 46.049506],
     zoom: 11
   });
-  // __ДОБАВЛЯЮ__
-  // getCoordinat().then((lat, lon) => maps.setCenter([51.544248, 46.049506]));
 }
