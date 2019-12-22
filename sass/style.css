@@ -8,9 +8,34 @@ body {
   min-width: 320px;
   color: #FFF;
   font-family: 'Roboto', sans-serif;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(8, 15, 26, 0.59)), to(rgba(17, 17, 46, 0.46))), url(../img/bg-3.jpg) no-repeat center center;
-  background: linear-gradient(180deg, rgba(8, 15, 26, 0.59) 0, rgba(17, 17, 46, 0.46) 100%), url(../img/bg-3.jpg) no-repeat center center;
-  background-size: cover;
+  background: linear-gradient(45deg, #0a6981, #be3c0b);
+  background-size: 400% 400%;
+  -webkit-animation: BackgroundGradient 15s ease infinite;
+          animation: BackgroundGradient 15s ease infinite;
+}
+
+@-webkit-keyframes BackgroundGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes BackgroundGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 p {
@@ -342,8 +367,8 @@ header {
 }
 
 main {
-  -ms-flex-preferred-size: 65%;
-      flex-basis: 65%;
+  -ms-flex-preferred-size: 68%;
+      flex-basis: 68%;
 }
 
 @media screen and (max-width: 768px) {
@@ -417,24 +442,24 @@ main {
 
 .temp-today__weather-description {
   font-size: 22px;
-  color: yellow;
+  color: #FFF;
   font-weight: bold;
 }
 
 .temp-today__weather-wind {
   font-size: 33px;
-  color: lightgreen;
+  color: #FFF;
 }
 
 .temp-today__weather-humidity {
   font-size: 22px;
-  color: red;
+  color: #FFF;
   font-weight: bold;
 }
 
 .temp-today__weather-pressure {
   font-size: 22px;
-  color: green;
+  color: #FFF;
   font-weight: bold;
 }
 
@@ -443,7 +468,7 @@ main {
 }
 
 .geo-point p {
-  text-align: right;
+  text-align: center;
   padding-right: 12px;
 }
 
