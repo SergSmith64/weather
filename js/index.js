@@ -55,7 +55,7 @@ const picName = {
 
 
 
-//  _________________ ОПРЕДЕЛЯЮ МОИ КООРДИНАТЫ __________________
+//  _________________ ОПРЕДЕЛЯЮ МОИ КООРДИНАТЫ __________toFixed(4)________
 var detectLatitude = 0;
 var detectLongitude = 0;
 
@@ -64,8 +64,14 @@ function getCoordinat() {
     navigator.geolocation.getCurrentPosition(showCoordinat);
 }
 function showCoordinat(position) {
-    console.log("Широта:  " + position.coords.latitude);
-    console.log("Долгота: " + position.coords.longitude);
+    console.log("МОЯ Широта:____" + position.coords.latitude);
+    console.log("МОЯ Долгота:___" + position.coords.longitude);
+
+    detectLatitude = position.coords.latitude;
+    detectLatitude = detectLatitude.toFixed(4);
+    detectLongitude = position.coords.longitude;
+    detectLongitude = detectLongitude.toFixed(4);
+    console.log("ПРИСВОЕННЫЕ КООР-Ы___", detectLatitude, "___", detectLongitude);
 
 
     var targetUrl = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + position.coords.latitude + '&lon=' + position.coords.longitude + '&appid=084a72f7662b746a323538af696e70cb';
@@ -96,10 +102,6 @@ function showCoordinat(position) {
     //   console.log('Получил_данные_о_ПОГОДЕ:__' + strWeather);
     })
 
-
-    // .catch(function() {
-    //   console.log("Fetch Error = ...........");
-    // });
 
     .catch(function showError(error) {
       switch(error.code) {
@@ -169,7 +171,7 @@ function inputYourCity() {
 
 
 // __ДОБАВЛЯЮ__
-let maps;
+let myMap;
 
 ymaps.ready(init);
 function init(){

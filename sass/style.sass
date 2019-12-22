@@ -35,9 +35,10 @@ body
     // height: 100vh
     // background: linear-gradient(132deg, #ec5218, #1665c1)
     // background: linear-gradient(45deg, #0a6981, #3838af)
-    background: linear-gradient(45deg, #0a6981, #be3c0b)
-    background-size: 400% 400%
-    animation: BackgroundGradient 15s ease infinite
+    background: linear-gradient(45deg, #0a6981, #be3c0b, #0a7900)
+    // background-size: 400% 400%
+    background-size: 260% 290%
+    animation: BackgroundGradient 12s ease infinite
 
 @keyframes BackgroundGradient
   0% {background-position: 0% 50%}
@@ -454,13 +455,35 @@ aside
 // _______ из Яндекса _________
 
 #map
-  width: 320px
-  height: 420px
+  // width: 320px
+  // height: 420px
+  display: flex
+  width: 30vw
+  height: 400px
+  border: #FFF 2px solid
+  background-color: red
+
+@media screen and (max-width: 998px)
+  #map
+    width: 30vw
+    background-color: green
+
+@media screen and (max-width: 946px)
+  #map
+    width: 35vw
+    background-color: blue
 
 @media screen and (max-width: 768px)
   #map
-    width: 576px
+    width: 80vw
+    padding-left: 20px
+    padding-right: 20px
+    // text-align: center
+    background-color: yellow
 
-@media screen and (max-width: 576px)
-  #map
-    width: 320px
+// @media screen and (max-width: 576px)
+//   #map
+//     width: 20vw
+//     background-color: #FFF
+
+
