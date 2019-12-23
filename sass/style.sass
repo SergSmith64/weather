@@ -1,0 +1,490 @@
+*
+    margin: 0
+    padding: 0
+
+
+
+
+// h1 {
+//   position: absolute;
+//   left: 50%;
+//   top: 50%;
+//   transform: translateX(-50%) translateY(-50%);
+//   font-family: Open Sans, sans-serif;
+//   color: #fff;
+//   font-weight: 400;
+//   text-transform: uppercase;
+//   text-align: center;
+//   font-size: 2em;
+//   padding: 5px;
+// }
+
+
+body
+    font-size: 18px
+    min-width: 320px
+    color: #FFF
+    font-family: 'Roboto', sans-serif
+    // font-family: 'Montserrat', sans-serif
+    // background: url(../assets/img/bg-3.jpg) no-repeat center top
+    // background: linear-gradient(180deg,rgba(8,15,26,.59) 0,rgba(17,17,46,.46) 100%),
+    // url(../img/bg-3.jpg) no-repeat center center
+    // background: url(../img/bg-4.jpg) no-repeat center top
+    // background-size: cover
+    // box-shadow: inset 0px 0px 185px rgba(0,0,0,0.4)
+    // height: 100vh
+    // background: linear-gradient(132deg, #ec5218, #1665c1)
+    // background: linear-gradient(45deg, #0a6981, #3838af)
+    background: linear-gradient(45deg, #0a6981, #be3c0b, #0a7900)
+    // background-size: 400% 400%
+    background-size: 260% 290%
+    animation: BackgroundGradient 12s ease infinite
+
+@keyframes BackgroundGradient
+  0% {background-position: 0% 50%}
+  50% {background-position: 100% 50%}
+  100% {background-position: 0% 50%}
+
+p
+    margin: 0
+    padding: 0
+
+.container
+    display: flex
+    flex-direction: column
+    max-width: 1024px
+    margin: 0 auto
+    padding-left: 16px
+    padding-right: 16px
+
+
+header
+  display: flex
+  padding-top: 40px
+  padding-bottom: 60px
+  justify-content: space-between
+  flex-wrap: nowrap
+
+@media screen and (max-width: 800px)
+  header
+    flex-wrap: wrap
+    // background-color: red
+
+
+// ________________
+
+.header-tools
+  display: flex
+
+
+.header-tools__refresh
+  width: 44px
+  height: 44px
+  margin-right: 10px
+  border: none
+  border-radius: 5px
+  outline: 0
+  background-color: rgba(174,181,185,.5)
+  // background-image: url("../assets/img/refresh-bg.svg")
+  background-repeat: no-repeat
+  background-position: center 5px
+  box-shadow: inset 0 3px 6px rgba(0,0,0,.2)
+
+// .header-tools__refresh:hover .refresh__arrows
+  
+.header-tools__refresh:hover
+  box-shadow: inset 0 3px 6px rgba(0,0,0,.6)
+  // transform: rotate(180deg)
+  // transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1)
+
+.refresh__arrows:hover
+  transform: rotate(180deg)
+  transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
+
+.header-tools__refresh img
+  margin-top: 5px
+  // animation-name: rotation
+  // animation-duration: 2s
+  // animation-timing-function: linear
+  // animation-iteration-count: infinite
+
+
+@-webkit-keyframes rotation
+  0%
+    -webkit-transform: rotate(0)
+    transform: rotate(0)
+
+  100%
+    -webkit-transform: rotate(360deg)
+    transform: rotate(360deg)
+
+@keyframes rotation
+  0%
+    -webkit-transform: rotate(0)
+    transform: rotate(0)
+
+  100%
+    -webkit-transform: rotate(360deg)
+    transform: rotate(360deg)
+
+.header-tools__lang
+  display: flex
+  width: 71px
+  height: 44px
+  margin-right: 10px
+  padding-left: 23px
+  color: #FFF
+  border: none
+  border-radius: 6px
+  outline: 0
+  background: rgba(174,181,185,.5)
+  box-shadow: inset 0 3px 6px rgba(0,0,0,.2)
+  justify-content: center
+  align-items: center
+  &:hover
+    box-shadow: inset 0 3px 6px rgba(0,0,0,.6)
+  
+.control_button__metric
+  display: flex
+  width: 44px
+  height: 44px
+  input
+    position: absolute
+    left: -9999px
+    width: 44px
+    align-items: center
+  input:checked + label
+    background: rgba(76,82,85,.4)
+    box-shadow: inset 0 3px 6px rgba(0,0,0,.2)
+  label
+    display: flex
+    width: 44px
+    height: 44px
+    cursor: pointer
+    background: rgba(174,181,185,.5)
+    box-shadow: inset 0 3px 6px rgba(0,0,0,.2)
+    justify-content: center
+    align-items: center
+  div
+    color: #FFF
+  div:first-child label
+    border-top-left-radius: 5px
+    border-bottom-left-radius: 5px
+    &:hover
+      box-shadow: inset 0 3px 6px rgba(0,0,0,.6)
+  div:last-child label
+    border-top-right-radius: 5px
+    border-bottom-right-radius: 5px
+    &:hover
+      box-shadow: inset 0 3px 6px rgba(0,0,0,.6)
+
+
+
+// ________________
+
+.header-search
+  display: flex
+  justify-content: flex-end
+  // background-color: rgba(128, 241, 75, 0.438)
+
+.header-search input
+  position: relative
+  box-sizing: border-box
+  width: 375px
+  height: 44px
+  padding: 13px 58px 13px 15px
+  color: #FFF
+  border: 1px solid rgba(228,227,227,.2)
+  border-top-left-radius: 5px
+  border-bottom-left-radius: 5px
+  outline-color: rgba(174,181,185,.5)
+  // background: rgba(76,82,85,.4) url(../assets/img/microphone.svg) no-repeat
+  background: rgba(76,82,85,.4)
+  background-position-x: 345px
+  background-position-y: center
+
+@media screen and (max-width: 780px)
+  .header-search input
+    width: 350px
+    // background-position-x: 320px
+    // background-color: green
+
+@media screen and (max-width: 730px)
+  .header-search input
+    width: 320px
+    // background-position-x: 280px
+    // background-color: blue
+
+@media screen and (max-width: 700px)
+  .header-search input
+    width: 320px
+    background-position-x: 280px
+    // background-color: brown
+
+.header-search input::placeholder
+  opacity: 1
+  transition: opacity .3s
+  color: rgba(228,227,227,.8)
+
+.header-search button
+  font-size: 14px
+  font-weight: 400
+  font-style: normal
+  line-height: 17px
+  display: flex
+  width: 101px
+  height: 44px
+  text-transform: uppercase
+  color: #FFF
+  border: none
+  border-top-right-radius: 5px
+  border-bottom-right-radius: 5px
+  outline: 0
+  background-color: rgba(174,181,185,.5)
+  box-shadow: inset 0 3px 6px rgba(0,0,0,.2)
+  align-items: center
+  justify-content: center
+  font-feature-settings: 'cpsp' on
+
+.header-search button:hover
+  box-shadow: inset 0 3px 6px rgba(0,0,0,.6)
+
+
+.header-search input:focus
+  height: 42px
+  margin-top: 1px
+
+.header-search input:focus::placeholder
+  opacity: 1
+
+// _________________________________________________________
+
+
+.sec-app
+  display: flex
+  padding-left: 10px
+  padding-right: 10px
+  // background-color: red
+
+@media screen and (max-width: 768px)
+  .sec-app
+    flex-wrap: wrap
+    // background-color: rgba(238, 223, 18, 0.55)
+
+main
+  flex-basis: 68%
+  // padding: 8px
+  // background-color: rgba(0, 50, 0, 0.55)
+
+@media screen and (max-width: 768px)
+  main
+    flex-basis: 100%
+    // background-color: rgba(28, 141, 28, 0.226)
+
+// ____________________
+
+.geo__city
+  font-size: 70px
+  color: #FFF
+  font-weight: bold
+
+.geo__country
+  font-size: 44px
+  color: #FFF
+  font-weight: bold
+
+.geo__date
+  font-size: 33px
+  color: #FFF
+  
+.geo__time
+  font-size: 33px
+  color: #FFF
+
+// ____________________
+
+.temp-today
+  display: flex
+  flex-wrap: wrap
+  // justify-content: space-between
+  justify-content: flex-start
+  margin-top: 60px
+  // padding: 12px
+  // background-color: rgba(75, 241, 219, 0.623)
+
+.temp-today__temp-wrapper
+  display: flex
+  // padding: 12px
+  // background-color: rgba(10, 190, 40, 0.644)
+
+.temp-today__temp
+  font-size: 160px
+  line-height: 0.8
+  color: #FFF
+  font-weight: bold
+  // background-color: rgba(190, 106, 10, 0.644)
+
+// _______ ЧУТЬ ВВЕРХ _______
+
+.temp-today__icon
+  margin-top: -15px
+  // padding: 3px
+  // background-color: blue
+
+// ________
+
+.temp-today__weather
+  display: flex
+  // padding: 12px
+  // background-color: rgba(8, 109, 134, 0.55)
+
+
+// ___ СТИЛЬ - ТЕХНОЛОГИЧЕСКИЙ ____
+.temp-today__weather-wrap
+  margin-top: 57px
+  margin-left: 3px
+  // padding: 3px
+  // background-color: rgba(143, 32, 124, 0.836)
+
+.temp-today__weather-description
+  font-size: 22px
+  color: #FFF
+  font-weight: bold
+
+.temp-today__weather-wind
+  font-size: 33px
+  color: #FFF
+
+.temp-today__weather-humidity
+  font-size: 22px
+  color: #FFF
+  font-weight: bold
+
+.temp-today__weather-pressure
+  font-size: 22px
+  color: #FFF
+  font-weight: bold
+
+// _________________
+
+.geo-point
+  padding-top: 10px
+  p
+    text-align: center
+    padding-right: 12px
+
+@media screen and (max-width: 768px)
+  .geo-point
+    p
+      text-align: left
+
+.geo-point__latitude,
+.geo-point__longitude
+  font-size: 18px
+
+
+.weather-three-days
+  display: flex
+  justify-content: space-between
+  padding-top: 30px
+  padding-bottom: 130px
+  // background-color: rgba(0, 0, 0, 0.5)
+
+.weather-three-days-item
+  padding-right: 30px
+
+.day-2,
+.day-3,
+.day-4
+  color: #FFF
+  font-size: 18px
+  font-weight: bold
+
+.temp-day-2__temp,
+.temp-day-3__temp,
+.temp-day-4__temp
+  color: #FFF
+  font-style: normal
+  font-weight: 600
+  font-size: 80px
+  line-height: 98px
+  text-transform: uppercase
+
+@media screen and (max-width: 720px)
+  .temp-day-2__temp,
+  .temp-day-3__temp,
+  .temp-day-4__temp
+    font-size: 60px
+
+.temp-day-2__weather-description,
+.temp-day-3__weather-description,
+.temp-day-4__weather-description
+  color: #FFF
+  font-style: normal
+  font-style: 24px
+  font-weight: bold
+
+// =========== RIGHT BLOCK ==============
+
+aside
+  flex-basis: 32%
+  // padding: 8px
+  justify-content: flex-end
+  // background-color: rgba(0, 0, 50, 0.65)
+
+@media screen and (max-width: 768px)
+  aside
+    flex-basis: 100%
+    // background-color: rgba(102, 10, 60, 0.65)
+
+.geolocation
+  // align-items: center
+
+// .geolocation-map
+//   img
+//     border-radius: 20px
+
+.geo-point
+  // text-align: right
+  color: #FFF
+  font-size: 20px
+
+.geo-map
+  text-align: right
+  position: relative
+  // background-color: rgba(93, 17, 138, 0.65)
+
+// _______ из Яндекса _________
+
+#map
+  // width: 320px
+  // height: 420px
+  display: flex
+  width: 30vw
+  height: 400px
+  border: #FFF 2px solid
+  // background-color: red
+
+@media screen and (max-width: 998px)
+  #map
+    width: 30vw
+    // background-color: green
+
+@media screen and (max-width: 946px)
+  #map
+    width: 35vw
+    // background-color: blue
+
+@media screen and (max-width: 768px)
+  #map
+    width: 80vw
+    padding-left: 20px
+    padding-right: 20px
+    // background-color: yellow
+
+// @media screen and (max-width: 576px)
+//   #map
+//     width: 20vw
+//     background-color: #FFF
+
+
